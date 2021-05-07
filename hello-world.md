@@ -25,10 +25,9 @@ More info: [Server](https://hexo.io/docs/server.html)
 
 ``` bash
 $ hexo generate
-
-
-More info: [Generating](https://hexo.io/docs/generating.html)
 ```
+More info: [Generating](https://hexo.io/docs/generating.html)
+
 ### Deploy to remote sites
 
 ``` bash
