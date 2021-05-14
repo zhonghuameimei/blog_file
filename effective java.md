@@ -1,3 +1,10 @@
+---
+title: Effective Java
+date: 2021-05-014 16:31:24
+tags: 代码优化
+categories: Java编码书籍
+---
+
 ### Effective Java
 
 本书主要解决的三种需求：习惯和高效的用法。
@@ -15,13 +22,93 @@
 
 5. 方法返回的对象所属的类，在编写包含该静态工厂方法的类时可以不存在
 
+<!-- more -->
+
 **缺点：**
 
 1. 类如果不含公有的或者受保护的构造器，就不能被子类化
 
 2. 程序员很难发现它们
 ##### 2、遇到多个构造器参数时要考虑使用构建器
+
+~~~java
+public class NutritionFacts {
+    private final int servingSize;
+    private final int servings;
+    private final int calories;
+    private final int fat;
+    private final int sodium;
+    private final int carbohydrate;
+
+    public static class Builder {
+        //Required param
+        private final int servingSize;
+        private final int servings;
+        //Optional param
+        private int calories;
+        private int fat;
+        private int sodium;
+        private int carbohydrate;
+
+        public Builder(int servingSize, int servings){
+            this.servingSize = servingSize;
+            this.servings = servings;
+        }
+
+        public Builder calories(int val){
+            calories = val;
+            return this;
+        }
+        public Builder fat(int val){
+            fat = val;
+            return this;
+        }
+        public Builder sodium(int val){
+            sodium = val;
+            return this;
+        }
+        public Builder carbohydrate(int val){
+            carbohydrate = val;
+            return this;
+        }
+
+        public NutritionFacts build(){
+            return new NutritionFacts(this);
+        }
+    }
+
+    private NutritionFacts(Builder builder){
+        servingSize = builder.servingSize;
+        servings = builder.servings;
+        calories = builder.calories;
+        fat = builder.fat;
+        sodium = builder.sodium;
+        carbohydrate = builder.carbohydrate;
+    }
+
+    @Override
+    public String toString() {
+        return "NutritionFacts{" +
+                "servingSize=" + servingSize +
+                ", servings=" + servings +
+                ", calories=" + calories +
+                ", fat=" + fat +
+                ", sodium=" + sodium +
+                ", carbohydrate=" + carbohydrate +
+                '}';
+    }
+
+    public static void main(String[] args){
+        NutritionFacts nutritionFacts = new NutritionFacts.Builder(240,12).calories(3).fat(2).sodium(6).carbohydrate(3).build();
+        System.out.println(nutritionFacts);
+    }
+}
+~~~
+
 ##### 3、用私有构造器或者枚举类型强化_Singleton_属性
+
+
+
 ##### 4、通过私有构造器强化不可实例化的能力
 ##### 5、优先考虑依赖注入来引用资源
 ##### 6、避免创建不必要的对象
