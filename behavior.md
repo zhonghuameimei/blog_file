@@ -17,7 +17,7 @@ categories: 设计模式
 ##### 3、实现
 观察者模式使用三个类 Subject、Observer 和 Client。Subject 对象带有绑定观察者到 Client 对象和从 Client 对象解绑观察者的方法。我们创建  _Subject_  类、_Observer_  抽象类和扩展了抽象类  _Observer_  的实体类。
 _ObserverPatternDemo_，我们的演示类使用  _Subject_  和实体类对象来演示观察者模式。
-![观察者模式的 UML 图](https://www.runoob.com/wp-content/uploads/2014/08/observer_pattern_uml_diagram.jpg)
+![观察者模式的 UML 图](./picture/observer_pattern_uml_diagram.jpg)
 
 **创建主题类**
 ```java

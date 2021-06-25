@@ -14,7 +14,7 @@ Java提供了种类丰富的锁，每种锁因其特性的不同，在适当的�
 
 <!-- more -->
 
-![7f749fc8](C:\Users\kun.li\Desktop\7f749fc8.png)
+![img](./picture/allLock.png)
 
 ##### 1、乐观锁和悲观锁
 
@@ -24,7 +24,7 @@ Java提供了种类丰富的锁，每种锁因其特性的不同，在适当的�
 
 乐观锁在Java中是通过使用无锁编程来实现，最常采用的是CAS算法，Java原子类中的递增操作就通过CAS自旋实现的
 
-![img](https://awps-assets.meituan.net/mit-x/blog-images-bundle-2018b/c8703cd9.png)
+![img](./picture/oneLock.png)
 
 **使用场景：**
 
@@ -155,4 +155,8 @@ CAS 由三个步骤组成，分别是“读取->比较->写回”。 考虑这�
 
 自旋CAS如果长时间不成功，会给CPU带来非常大的执行开销。 如果JVM能支持处理器提供的pause指令那么效率会有一定的提升，pause指令有两个作用，第一它可以延迟流水线执行指令（de-pipeline）,使CPU不会消耗过多的执行资源，延迟的时间取决于具体实现的版本，在一些处理器上延迟时间是零。第二它可以避免在退出循环的时候因内存顺序冲突（memory order violation）而引起CPU流水线被清空（CPU pipeline flush），从而提高CPU的执行效率
 
-l
+**3. 只能保证一个共享变量的原子操作**
+
+对一个共享变量执行操作时，CAS能够保证原子操作，但是对多个共享变量操作时，CAS是无法保证操作的原子性的。
+
+##### 2、自旋锁 VS 适应性自旋锁

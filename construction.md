@@ -19,8 +19,9 @@ categories: 设计模式
 ##### 实现
 我们将创建一个  _Shape_  接口和实现了  _Shape_  接口的实体类。下一步是定义一个外观类  _ShapeMaker_。
 _ShapeMaker_  类使用实体类来代表用户对这些类的调用。_FacadePatternDemo_  类使用  _ShapeMaker_  类来显示结果。
-![外观模式的 UML 图](https://www.runoob.com/wp-content/uploads/2014/08/20201015-facade.svg)
+![外观模式的 UML 图](./picture/20201015-facade.svg)
 **创建接口**
+
 ```java
 package test06;
 
@@ -119,8 +120,9 @@ public class Demo {
 3. 一个类存在两个独立变化的维度，且这两个维度都需要进行扩展
 ##### 实现
 我们有一个作为桥接实现的 _DrawAPI_ 接口和实现了 _DrawAPI_ 接口的实体类 _RedCircle_、_GreenCircle_。_Shape_ 是一个抽象类，将使用 _DrawAPI_ 的对象。_BridgePatternDemo_ 类使用 _Shape_ 类来画出不同颜色的圆。
-![桥接模式的 UML 图](https://www.runoob.com/wp-content/uploads/2014/08/20201015-bridge.svg)
+![桥接模式的 UML 图](./picture/20201015-bridge.svg)
 **创建桥接实现接口**
+
 ```java
 package test04;
 
@@ -223,8 +225,9 @@ public class Demo {
 我们还有另一个接口  _AdvancedMediaPlayer_  和实现了  _AdvancedMediaPlayer_  接口的实体类。该类可以播放 vlc 和 mp4 格式的文件。
 我们想要让  _AudioPlayer_  播放其他格式的音频文件。为了实现这个功能，我们需要创建一个实现了  _MediaPlayer_  接口的适配器类  _MediaAdapter_，并使用  _AdvancedMediaPlayer_  对象来播放所需的格式。
 _AudioPlayer_  使用适配器类  _MediaAdapter_  传递所需的音频类型，不需要知道能播放所需格式音频的实际类。_AdapterPatternDemo_  类使用  _AudioPlayer_  类来播放各种格式。
-![适配器模式的 UML 图](https://www.runoob.com/wp-content/uploads/2014/08/20201204-adapter.png)
+![适配器模式的 UML 图](./picture/20201204-adapter.png)
 **创建媒体播放器接口**
+
 ```java
 package test03;
 
@@ -354,7 +357,7 @@ public class Demo {
 我们将创建一个  _Shape_  接口和实现了  _Shape_  接口的实体类。然后我们创建一个实现了  _Shape_  接口的抽象装饰类  _ShapeDecorator_，并把  _Shape_  对象作为它的实例变量。
 _RedShapeDecorator_  是实现了  _ShapeDecorator_  的实体类。
 _DecoratorPatternDemo_  类使用  _RedShapeDecorator_  来装饰  _Shape_  对象。
-![装饰器模式的 UML 图](https://www.runoob.com/wp-content/uploads/2014/08/20210204-decorator-1-decorator.svg)
+![装饰器模式的 UML 图](./picture/20210204-decorator-1-decorator.svg)
 **创建一个接口**
 ```java
 package test05;

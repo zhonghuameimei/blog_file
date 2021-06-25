@@ -113,7 +113,7 @@ static class Node<K,V> implements Map.Entry<K,V> {
 
 Put 操作
 
-![img](https://img-blog.csdn.net/20161021144506448?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![img](./picture/map_put.png)
 
 ~~~java
 public V put(K key, V value) {
@@ -383,7 +383,7 @@ final void treeifyBin(Node<K,V>[] tab, int hash) {
 1. 在1.8中ConcurrentHashMap仍然保留了segment，源码中注释中写道只是为了兼容以前版本的序列化而申明的类
 2. 在1.8中ConcurrentHashMap由数组(Node)+链表+红黑树实现，与HashMap不同的是红黑树对象不是TreeNode，而是用TreeBin进行了封装。而在1.7中，ConcurrentHashMap采用锁分段技术，数组(Segment)+链表的数据结构。下图为1.7的ConcurrentHashMap的实现结构图
 
-![img](https://img-blog.csdnimg.cn/2019042720043475.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hvbGxha2U=,size_16,color_FFFFFF,t_70)
+<img src="./picture/concurrentHashMap.jpg" alt="img" style="zoom:150%;" />
 
 3. 1.7的分段锁Segment继承于ReentrantLock，所以带有锁功能，保证线程安全
 
