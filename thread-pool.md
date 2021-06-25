@@ -8,6 +8,8 @@ categories: 多线程
 
 ### 线程池
 
+文章链接：[http://gityuan.com/2016/01/16/thread-pool/](http://gityuan.com/2016/01/16/thread-pool/)
+
 #### 一、概叙
 
 在执行一个异步任务或并发任务时，往往是通过直接`new Thread()`方法来创建新的线程，这样做弊端较多，更好的解决方案是合理地利用线程池，线程池的优势很明显，如下：
@@ -379,4 +381,3 @@ private static ExecutorService executor = new ThreadPoolExecutor(10, 10,
         60L, TimeUnit.SECONDS,
         new ArrayBlockingQueue(10));
 ~~~
-
